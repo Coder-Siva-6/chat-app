@@ -17,7 +17,7 @@ const app = express()
 
 //  Only ONE CORS config — with proper settings
 app.use(cors({
-  origin: process.env.FRONTEND_URL, // React frontend',
+  origin: process.env.FRONTEND_URL || "https://talk-lynk.onrender.com", // React frontend',
   methods: ['POST', 'GET'],
   credentials: true
 }))
@@ -29,7 +29,7 @@ const PORT = process.env.PORT
 const server = http.createServer(app)
 const io = new Server(server, {
   cors: {
-    origin: process.env.FRONTEND_URL, //  React frontend
+    origin: process.env.FRONTEND_URL || "https://talk-lynk.onrender.com", //  React frontend
     methods: ['GET', 'POST'],
     credentials: true
   }
@@ -38,7 +38,9 @@ const io = new Server(server, {
 connectDB()
 
 io.on('connection', ioConnection)
-
+app.get('/',(req,res)=>{
+  res.send("server is running")
+})
 app.post('/signin', signUp)
 app.post('/login', logIn)
 app.post('/logout', logOut)
