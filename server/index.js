@@ -16,8 +16,9 @@ dotenv.config()
 const app = express()
 
 //  Only ONE CORS config — with proper settings
+const allowedOrigin = process.env.FRONTEND_URL || "https://talk-lynk.onrender.com";
 app.use(cors({
-  origin: process.env.FRONTEND_URL || "https://talk-lynk.onrender.com", // React frontend',
+  origin:allowedOrigin, // React frontend',
   methods: ['POST', 'GET'],
   credentials: true
 }))
@@ -29,7 +30,7 @@ const PORT = process.env.PORT
 const server = http.createServer(app)
 const io = new Server(server, {
   cors: {
-    origin: process.env.FRONTEND_URL || "https://talk-lynk.onrender.com", //  React frontend
+    origin:allowedOrigin, //  React frontend
     methods: ['GET', 'POST'],
     credentials: true
   }
