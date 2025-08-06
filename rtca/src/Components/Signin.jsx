@@ -26,7 +26,7 @@ const backendUrl = import.meta.env.VITE_BACKEND_URL
     e.preventDefault()
 
     try {
-      axios.post(`${backendUrl}|| https://chat-app-server-nda2.onrender.com/signin`, signin
+      axios.post(`${backendUrl}/signin`, signin
       )
         .then((res) => {
          
