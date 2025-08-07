@@ -237,7 +237,7 @@ if(up){
  export const validate = async (req,res)=>{
   console.log(currentUserNumber)
   const user = await User.findOne({phone:currentUserNumber})
-  res.json({message:"logged in "})
+  res.json({message:"logged in ",user})
    
   
 
