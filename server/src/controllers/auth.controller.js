@@ -237,17 +237,17 @@ if(up){
 
   const user = await User.findOne({phone:currentUserNumber})
 
-res.json({
-  user: {
-    ...user.toObject(),
-    profilePicture:{
+res.json({ user
+ // user: {
+//    ...user.toObject(),
+ //   profilePicture:{
        
-          contentType: user.profilePicture.contentType,
-          data: user.profilePicture.data.toString('base64')
-    }
+   //       contentType: user.profilePicture.contentType,
+    //      data: user.profilePicture.data.toString('base64')
+ //   }
         
       
-  }
+//  }
 });
   
 
