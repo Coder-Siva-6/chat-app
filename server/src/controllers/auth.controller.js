@@ -5,6 +5,7 @@ import bcrypt from 'bcrypt'
 
 
 
+
 export const signUp =  async (req,res)=>{
 
     const{name,email,phone,password}= req.body
@@ -171,9 +172,7 @@ export const contact = async (req,res)=>{
 
 export const  mess = async (req,res)=>{
   const{sentPhone,recivePhone,message}=req.body
-  // const sentUser = await User.findOne({phone:sentPhone})
-  // const reciveUser = await User.findOne({phone:recivePhone})
-  // res.status(200).json({message: reciveUser,sentUser})
+
   try{
    const up = await User.updateOne(
       {
@@ -237,22 +236,58 @@ if(up){
  export const validate = async (req,res)=>{
   console.log(currentUserNumber)
   const user = await User.findOne({phone:currentUserNumber})
-  res.json({message:" intha vassuko user varan",user})
-   
+
+res.json({
+  user: {
+    ...user.toObject(),
+    profilePicture:{
+       
+          contentType: user.profilePicture.contentType,
+          data: user.profilePicture.data.toString('base64')
+    }
+        
+      
+  }
+});
   console.log(currentUserNumber)
 
 
  }
 
+
+
+
+
+
+
+
+
+
+////-----------------------------------------------------socket_io --------------------------------------------------------------------\\\\
+
+
+
+
+
+
+
 const userSocketMap = {};
 
-export const ioConnection = (socket) => {
+export const ioConnection =async (socket) => {
   const phone = socket.handshake.auth?.phone;
   if (!phone) {
     console.log("❌ Phone not provided");
     return;
   }
-
+    socket.emit('online',{online:phone})                 // sending online status into frontend 
+      await User.findOneAndUpdate({phone:phone},{
+      $set:{isOnline:"true"},
+    
+      
+     },{ new: true })
+  
+   
+   
   userSocketMap[phone] = socket.id;
   console.log(`✅ Mapped ${phone} → ${socket.id}`);
 
@@ -299,11 +334,21 @@ export const ioConnection = (socket) => {
     }
   });
 
-  socket.on('disconnect', () => {
+  socket.on('disconnect',async () => {
+    socket.emit('offline',{offline:phone})
+     await User.findOneAndUpdate({phone:phone},{
+      $set:{isOnline:"false"},
+      
+     },{ new: true })
     for (let key in userSocketMap) {
       if (userSocketMap[key] === socket.id) {
         delete userSocketMap[key];
         console.log(`❌ Disconnected ${key}`);
+         
+    
+  
+   
+   
         break;
       }
     }
@@ -342,7 +387,7 @@ export const fetchMessage = async (req, res) => {
 
 
 
-/// addding contact to database
+///=================================================================addding contact to database
 
 
 export const addContact = async (req, res) => {

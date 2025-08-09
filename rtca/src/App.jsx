@@ -14,10 +14,10 @@ function App() {
   return (
      <BrowserRouter>
      <Routes>
-      <Route path='/' element={<Signin/>}></Route>
-       <Route path='/login' element={<Login/>}></Route>
+      <Route path='/signin' element={<Signin/>}></Route>
+       <Route path='/' element={<Login/>}></Route>
        <Route path='/data' element={<PrivateRoute>
-       {(user) => <Data user={user} />}
+       {(user) => <Data user={user}  />}
     </PrivateRoute>
   }></Route>
     

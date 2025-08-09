@@ -87,11 +87,13 @@ const Login = () => {
 //......................................................................................................///
     
   return (
-    <div className='flex flex-col justify-center items-center h-screen bg-white'>
-      
+
+    <div className='flex flex-col justify-center items-center h-screen bg-white '>
+     
+       
             {/* --------------------- alert------------------------ */}
             {popup && <div className='fixed top-5  flex flex-col   items-center w-full z-10 ' >
-              <Stack sx={{ width: '40%' }} spacing={2} >
+              <Stack className='w-[90%] md:40%' spacing={2} >
                 {success && <Alert variant="filled" severity="success" className='transition-all ease-in-out '> {success}</Alert>}      
       
                
@@ -111,29 +113,30 @@ const Login = () => {
 
 
 
-
-      <div className='flex p-10 justify-center gap-20 w-[80%] mx-40 overflow-hidden rounded-4xl '>
-        <div className='flex '>
-          <img className='bg-cover w-160' src={log} alt="" />
+ <h1 className='font-bold  fixed top-10 z-1 font-engagement text-6xl md:text-7xl mb-2 tracking-wider md:hidden block   '>Chat-Lynk</h1>
+      <div className='flex flex-col md:flex-row md:p-10 justify-center md:gap-20  md:w-[80%] md:mx-40 overflow-hidden rounded-4xl '>
+        <div className='flex flex-col md:flex-row items-center md:items-start '>
+          
+          <img className='bg-cover w-75 md:w-160' src={log} alt="" />
 
         </div>
 
 
         
-         <form onSubmit={(e)=>handleSubmit(e)} action="" method='POST' className='flex   flex-col gap-5 items-center  backdrop-blur-2xl bg-transparent px-15  py-15 rounded-br-4xl rounded-tl-4xl  shadow-2xl  my-10  '>
+         <form onSubmit={(e)=>handleSubmit(e)} action="" method='POST' className='flex   flex-col gap-5 items-center  backdrop-blur-2xl bg-transparent md:px-15 py-10 md:py-15 rounded-br-4xl rounded-tl-4xl  md:shadow-2xl  md:my-10  '>
 
-                    <h1 className='font-bold font-engaement text-6xl mb-2    '>Talk Lynk</h1>
-                    <div className='flex flex-col gap-4 '>
+                    <h1 className='font-bold font-engagement text-6xl mb-2 tracking-wider hidden md:block   '>Chat-Lynk</h1>
+                    <div className='flex flex-col gap-3 md:gap-4 '>
                      
                   <input onChange={(e)=>setLogin({...logIn,phone:e.target.value})} value={logIn.phone} type="text" placeholder='phone'  className='border-2 px-10 py-4 rounded-2xl border-[#ccc] hover:border-black w-80 ' />
                   <input onChange={(e)=>setLogin({...logIn,password:e.target.value})} value={logIn.password} type="text" placeholder='password' className='border-2 px-10 py-4 rounded-2xl border-[#ccc] hover:border-black  ' />
                  <div className='self-end flex  flex-col items-end mx-2'>
-                  <p className='self-end font-roboto text-gray-600'> Don't Have  account?  <Link to={'/'}> <span className='text-blue-600 font-semibold'>Sign up</span></Link></p>
+                  <p className='self-end font-roboto text-gray-600'> Don't Have  account?  <Link to={'/signin'}> <span className='text-blue-600 font-semibold'>Sign in</span></Link></p>
                      {/* <p  className='self-end font-roboto text-gray-600'>Forgot passowrd</p> */}
                   </div>
                   </div>
 
-                  <button   className='bg-gradient-to-br from-red-600 to-red-900  px-32 py-3  text-amber-50 rounded-[5px] mt-5 text-[18px] font-semibold hover:scale-99 '>LOGIN</button>
+                  <button   className='bg-gradient-to-br from-red-600 to-red-900  px-32 py-3  text-amber-50 rounded-[5px] md:mt-5 text-[18px] font-semibold hover:scale-99 '>LOGIN</button>
 
               </form>
 

@@ -85,13 +85,14 @@ const backendUrl = import.meta.env.VITE_BACKEND_URL
   }
 
   return (
-    <div>
+    <div className='flex flex-col justify-center items-center h-screen bg-white overflow-y-hidden'>
+     
 
 
 
       {/* --------------------- alert------------------------ */}
       {popup && <div className='fixed top-5  flex flex-col   items-center w-full z-10 ' >
-        <Stack sx={{ width: '40%' }} spacing={2} >
+         <Stack className='w-[90%] md:40%' spacing={2} >
           {success && <Alert variant="filled" severity="success" className='transition-all ease-in-out '> {success}</Alert>}      
 
           {info && <Alert variant="filled" severity="info" className='transition-all ease-in-out duration-1500'> {info}</Alert>  }         
@@ -106,28 +107,28 @@ const backendUrl = import.meta.env.VITE_BACKEND_URL
 
 
 
-
-      <div className='flex p-10 justify-center gap-20 w-[80%] mx-40 overflow-hidden rounded-4xl mt-15'>
+   <h1 className='font-bold  fixed top-8 z-1 font-engagement text-6xl md:text-7xl mb-2 tracking-wider md:hidden block   '>Chat-Lynk</h1>
+      <div className='flex flex-col md:flex-row p-10 justify-center md:gap-20 md:w-[80%] md:mx-40 overflow-hidden rounded-4xl mt-15'>
 
        {/* -------------------------image ------------------------------------- */}
-        <div className='flex '>                                  
-          <img className='bg-cover w-180' src={log} alt="" />   
+        <div className='flex flex-col items-center md:items-start'>                                  
+          <img className='bg-cover w-75 md:w-180 '  src={log} alt="" />   
         </div>
 
      {/*  ------------------------------------------------------form---------------------------------------- */}
-        <form onSubmit={(e) => handleSubmit(e)} action="" method='POST' className='flex   flex-col gap-5 items-center  backdrop-blur-2xl bg-transparent px-15  py-15 rounded-br-4xl rounded-tl-4xl  shadow-2xl  my-12   '>
+        <form onSubmit={(e) => handleSubmit(e)} action="" method='POST' className='flex   flex-col gap-2 md:gap-5 items-center  backdrop-blur-2xl bg-transparent px-15  py-5 md:py-15 rounded-br-4xl rounded-tl-4xl  md:shadow-2xl  md:my-12   '>
 
-          <h1 className='font-bold font-engaement text-6xl mb-2    '>Talk Lynk</h1>
+          <h1 className='font-bold font-engagement text-6xl mb-2 hidden md:block    '>Talk Lynk</h1>
 
           
-          <div className='flex flex-col gap-4 '>
+          <div className='flex flex-col gap-2 md:gap-4 '>
             <input onChange={(e) => setSignin({ ...signin, name: e.target.value })} value={signin.name} type="text" placeholder='User Name' className='border-2 px-10 py-4 rounded-2xl border-[#ccc] hover:border-black w-85 font-roboto ' />
             <input onChange={(e) => setSignin({ ...signin, email: e.target.value.trim() })} value={signin.email} type="text" placeholder='Email' className='border-2 px-10 py-4 rounded-2xl border-[#ccc] hover:border-black w-85 font-roboto ' />
             <input onChange={(e) => setSignin({ ...signin, phone: e.target.value.trim() })} value={signin.phone} type="text" placeholder='Phone Number' className='border-2 px-10 py-4 rounded-2xl border-[#ccc] hover:border-black w-85  font-roboto' />
             <input onChange={(e) => setSignin({ ...signin, password: e.target.value.trim() })} value={signin.password} type="text" placeholder='Password' className='border-2 px-10 py-4 rounded-2xl border-[#ccc] hover:border-black w-85  font-roboto' />
             
             <div className='self-end flex  flex-col items-end mx-2'>
-              <p className='self-end font-roboto text-gray-600'>  Have an account?  <Link to={'/login'}> <span className='text-blue-600 font-semibold'>Login</span></Link></p>
+              <p className='self-end font-roboto text-gray-600'>  Have an account?  <Link to={'/'}> <span className='text-blue-600 font-semibold'>Login</span></Link></p>
               {/* <p  className='self-end font-roboto text-gray-600'>Forgot passowrd</p> */}
             </div>
 

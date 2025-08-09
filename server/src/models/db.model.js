@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { type } from "node:os";
 
 //  Message Sub-schema with timestamps
 const messageSchema = new mongoose.Schema(
@@ -27,7 +28,13 @@ const contactSchema = new mongoose.Schema(
     phone: {
       type: Number,
       required: true
-    },
+    }, 
+    profilePicture: {
+    data: {type:Buffer},
+    contentType:  { type: String },
+    
+    
+  },
     message: [messageSchema]
   },
   { timestamps: true }
@@ -36,7 +43,7 @@ const contactSchema = new mongoose.Schema(
 
 
 
-// ✅ Main User Schema
+//  Main User Schema
 const userSchema = new mongoose.Schema(
   {
     name: {
@@ -57,67 +64,22 @@ const userSchema = new mongoose.Schema(
       required: true,
       type: String
     },
+    profilePicture: {
+    data: {type:Buffer},
+    contentType:  { type: String },
+    
+    
+  },
+  isOnline:{
+    type:String,
+    default:'false'
+  },
     contacts: [contactSchema]
   },
   { timestamps: true }
 );
 
 
-
-
-// const userSchema = new mongoose.Schema({
-//     name:{
-//         required:true,
-//         type:String,
-//     },
-//      email:{
-//         required:true,
-//         type:String,
-//         unique:true
-//     },
-//      phone:{
-//         required:true,
-//         type:Number,
-//         unique:true,
-//         length:10
-//     },
-//      password:{
-//         required:true,
-//         type:String   
-//     },
-//     contacts:[
-//         {
-//             name:{
-//                 type:String,
-//                 default:""
-
-//             },
-//             phone:{
-//                 type:Number,
-//                 required:true,
-
-//             },
-//             message:[
-//                 {
-//                     type:{
-//                         type:String,
-//                         required:true
-//                        },
-//                     text:{
-//                         type:String,
-                    
-//                     }
-
-                    
-                    
-//                 },
-//                 {timestamps:true}
-
-//             ]
-//         }
-//         ,{timestamps:true}
-//     ]
-// },{timestamps:true} )
 
 const User = mongoose.model('user',userSchema)
 export default User
