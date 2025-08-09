@@ -234,7 +234,7 @@ if(up){
 
 /////////////// after login validate and sent data to front end
  export const validate = async (req,res)=>{
-  console.log(currentUserNumber)
+
   const user = await User.findOne({phone:currentUserNumber})
 
 res.json({
@@ -249,7 +249,7 @@ res.json({
       
   }
 });
-  console.log(currentUserNumber)
+  
 
 
  }
