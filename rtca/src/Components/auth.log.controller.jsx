@@ -19,10 +19,22 @@ const backendUrl = import.meta.env.VITE_BACKEND_URL
     })
  .then((res) => {
       setUser(res.data.user); 
+<<<<<<< HEAD
       // Save user from JWT
     })
     .catch( () => {
      axios.post(`${backendUrl}/logout`, {}, { withCredentials: true });
+=======
+      
+
+     
+      // Save user from JWT
+    })
+
+   
+    .catch(() => {
+      axios.post(`${backendUrl}/logout`, {}, { withCredentials: true });
+>>>>>>> 3161e7d (second one)
       navigate("/");
     });
     
