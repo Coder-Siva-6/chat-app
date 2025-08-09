@@ -27,7 +27,7 @@ const backendUrl = import.meta.env.VITE_BACKEND_URL
    
     .catch(() => {
       axios.post(`${backendUrl}/logout`, {}, { withCredentials: true });
-      navigate("/login");
+      navigate("/");
     });
   },[]);
 
