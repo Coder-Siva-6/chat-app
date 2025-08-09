@@ -59,8 +59,8 @@ app.patch('/post/:id', verifyToken, (req, res) => {
 
 app.post('/contacts', contact)
 app.post('/mess', mess)
-app.get('/validate',validate)
-//app.get('/validate', verifyToken, validate)
+
+app.get('/validate', verifyToken, validate)
 
 server.listen(PORT, (err) => {
   if (err) console.log("Server error:", err)
