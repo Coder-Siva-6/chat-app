@@ -26,7 +26,7 @@ const backendUrl = import.meta.env.VITE_BACKEND_URL
 // Function to handle form submission
   async function handleSubmit() {
     const myphone = user.phone;
-    await axios.post(`${backendUrl}/add-contact`, { name, phone, myphone })
+    await axios.post(`${backendUrl}/add-contact`, { name, phone, myphone },{ withCredentials: true })
       .then((response) => {
         //handle success responses
          setPopup(true)
