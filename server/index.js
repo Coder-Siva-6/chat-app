@@ -46,8 +46,8 @@ app.post('/signin', signUp)
 app.post('/login', logIn)
 app.post('/logout', logOut)
 
-//app.patch('/post/:id', verifyToken, (req, res) => {
-app.patch('/post/:id',  (req, res) => {
+app.patch('/post/:id', verifyToken, (req, res) => {
+
   const id = req.params.id
   if (id) {
     console.log(id)
@@ -59,7 +59,8 @@ app.patch('/post/:id',  (req, res) => {
 
 app.post('/contacts', contact)
 app.post('/mess', mess)
-app.get('/validate', verifyToken, validate)
+app.get('/validate',validate)
+//app.get('/validate', verifyToken, validate)
 
 server.listen(PORT, (err) => {
   if (err) console.log("Server error:", err)
