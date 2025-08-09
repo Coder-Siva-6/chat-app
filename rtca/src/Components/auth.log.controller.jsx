@@ -11,24 +11,26 @@ const PrivateRoute = ({ children }) => {
    
   const navigate = useNavigate();
 const backendUrl = import.meta.env.VITE_BACKEND_URL 
- 
-  useEffect(() => {
-    axios.get(`${backendUrl}/validate`, {
+
+
+  async function getData(){
+    await axios.get(`${backendUrl}/validate`, {
       withCredentials: true
     })
  .then((res) => {
       setUser(res.data.user); 
-      console.log(res.data.user)
-
-     
       // Save user from JWT
     })
-
-   
-    .catch(() => {
-      axios.post(`${backendUrl}/logout`, {}, { withCredentials: true });
+    .catch( () => {
+     axios.post(`${backendUrl}/logout`, {}, { withCredentials: true });
       navigate("/");
     });
+    
+  }
+ 
+  useEffect(() => {
+    getData()
+  
   },[]);
 
   if (user === null) return <h2>Loading...</h2>;
