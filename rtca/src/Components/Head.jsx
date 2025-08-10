@@ -117,9 +117,9 @@ const Head = ({ user }) => {
                     src={prevImage ? prevImage :
                         user?.profilePicture?.data
                             ? `data:${user.profilePicture.contentType};base64,${user.profilePicture.data}`
-                            : '/default-avatar.png' // <-- replace with your fallback image path
+                            : profile // <-- replace with your fallback image path
                     }
-                    alt="Profile"
+                    alt={profile}
                     className="w-50 h-50 rounded-full object-cover"
 
                 />
