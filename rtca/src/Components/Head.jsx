@@ -31,6 +31,9 @@ const Head = ({ user }) => {
             const formData = new FormData();
             formData.append('image', file);
             formData.append('phone', phone);
+               setTimeout(()=>{
+                        setProfilePicture(!profilePicture)
+                    },2000)
 
 
             await axios.post(`${backendUrl}/upload`, formData, {
@@ -38,9 +41,7 @@ const Head = ({ user }) => {
             })
                 .then((response) => {
                     console.log('Image uploaded successfully:', response.data);
-                    setTimeout(()=>{
-                        setProfilePicture(!profilePicture)
-                    },2000)
+                 
                     
                 })
                 .catch((error) => { console.error('Error uploading image:', error); });
