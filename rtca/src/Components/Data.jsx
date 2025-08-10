@@ -60,9 +60,8 @@ const Data = ({user}) => {
           
         })
                      
-      }else{
-            /////////////////// socket online text
-    })
+      }
+      )
     
     socketRef.current.on('receive_message', (data) => {
       const { from, sendMessage } = data;
