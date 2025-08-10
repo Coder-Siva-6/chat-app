@@ -51,7 +51,7 @@ const Data = ({user}) => {
       withCredentials: true,   
     });
                                /////////////////// socket online text
-    socketRef.current.on('online',(user)=>{
+     socketRef.current.on('online',(user)=>{
       const {online} = user                         /////////////////// socket online text
       if(online){
         setOnline({
@@ -60,8 +60,9 @@ const Data = ({user}) => {
           
         })
                      
-      }
-      )
+      }else{
+      console.log("offline")}           /////////////////// socket online text
+    })
     
     socketRef.current.on('receive_message', (data) => {
       const { from, sendMessage } = data;
