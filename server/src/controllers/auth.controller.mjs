@@ -283,7 +283,7 @@ if(up){
 
 const userSocketMap = {};
 
-export default const ioConnection = async (socket) => {
+export const ioConnection = async (socket) => {
   const phone = socket.handshake.auth?.phone;
   if (!phone) {
     console.log("❌ Phone not provided");
