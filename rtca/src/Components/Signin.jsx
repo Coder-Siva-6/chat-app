@@ -118,7 +118,7 @@ const backendUrl = import.meta.env.VITE_BACKEND_URL
      {/*  ------------------------------------------------------form---------------------------------------- */}
         <form onSubmit={(e) => handleSubmit(e)} action="" method='POST' className='flex   flex-col gap-2 md:gap-5 items-center  backdrop-blur-2xl bg-transparent px-15  py-5 md:py-15 rounded-br-4xl rounded-tl-4xl  md:shadow-2xl  md:my-12   '>
 
-          <h1 className='font-bold font-engagement text-6xl mb-2 hidden md:block    '>Talk Lynk</h1>
+          <h1 className='font-bold font-engagement text-6xl mb-2 hidden md:block    '>Chat-Lynk</h1>
 
           
           <div className='flex flex-col gap-2 md:gap-4 '>
