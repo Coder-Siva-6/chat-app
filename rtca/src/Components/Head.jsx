@@ -69,30 +69,20 @@ const Head = ({ user }) => {
 
 
                     <IoMdPersonAdd type='btn' onClick={() => setAdd(!add)} className="w-6 h-6 cursor-pointer md:hidden self-end" />
-                  //  <img onClick={() => setProfilePicture(!profilePicture)}
-//
-//
-                   //     src={prevImage ? prevImage :
-                      //      user?.profilePicture?.data
-                    //            ? `data:${user.profilePicture.contentType};base64,${user.profilePicture.data}`
-                   //             : profile // <-- replace with your fallback image path
-                   //     }
-                   //     alt="Profile"
-                  //      className="w-8 h-8 md:w-12 md:h-12 md:mx-5 shadow-2xl shadow-amber-600 rounded-full object-cover "
-                  //      style={{ backgroundPosition: 'center', backgroundSize: 'cover' }}
-                 //   />
-                 <img onClick={() => setProfilePicture(!profilePicture)}
+                    <img onClick={() => setProfilePicture(!profilePicture)}
 
 
-                        src={prevImage ? prevImage :
-                            user?user.profilePicture
-                              
-                                : profile // <-- replace with your fallback image path
-                        }
+                       // src={prevImage ? prevImage :
+                         //   user?.profilePicture?.data
+                              //  ? `data:${user.profilePicture.contentType};base64,${user.profilePicture.data}`
+                              //  : profile // <-- replace with your fallback image path
+                       // }
+                        src = {prevImage ? prevImage : user.profilePicture? user.profilePicture : profile }
                         alt="Profile"
                         className="w-8 h-8 md:w-12 md:h-12 md:mx-5 shadow-2xl shadow-amber-600 rounded-full object-cover "
                         style={{ backgroundPosition: 'center', backgroundSize: 'cover' }}
-                    />
+                   />
+                 
 
                 </div>}
 
