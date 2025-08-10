@@ -38,7 +38,7 @@ const Data = ({user}) => {
 
  
 
-  console.log(user.profilePicture )
+
 
     
 
@@ -61,7 +61,7 @@ const Data = ({user}) => {
         })
                      
       }else{
-      console.log("offline")}           /////////////////// socket online text
+            /////////////////// socket online text
     })
     
     socketRef.current.on('receive_message', (data) => {
@@ -85,7 +85,7 @@ const Data = ({user}) => {
           
        )
       
-      console.log('offline socket off ')                /////////////////// socket online text
+                 /////////////////// socket online text
      
     };
   }, [user.phone, selectedContact]);
