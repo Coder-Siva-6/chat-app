@@ -260,6 +260,7 @@ if(up){
   }
   catch{
      return res.json({message:'data without image',user})
+  }
    
   }
 
