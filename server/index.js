@@ -3,7 +3,7 @@ import dotenv from 'dotenv'
 import { verifyToken } from './src/middlewares/jwt.middle.js'
 import {connectDB} from './src/lib/db.js'
 import {signUp,logIn,logOut,contact,mess,validate,ioConnection,fetchMessage,addContact} from './src/controllers/auth.controller.mjs'
-import ioConnection from './src/controllers/auth.controller.js'
+
 import cookieParser from 'cookie-parser'
 import cors from 'cors'
 import { Server } from 'socket.io'
