@@ -46,7 +46,7 @@ const ContactList = ({ contacts, handleContactClick, selectedContact, user, inon
                     const lastMessage = contact.message[contact.message.length - 1];
                     const text =
                       lastMessage.type === "send"
-                        ? '🗸' + lastMessage.text
+                        ? 'You:' + lastMessage.text
                         : lastMessage.type === "recived"
                           ? lastMessage.text
                           : lastMessage.text;
