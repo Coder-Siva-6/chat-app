@@ -1,7 +1,7 @@
 import React from 'react'
 import userImg from '../assets/user.webp'
 
-const chatwindow = ({ selectedContact, user, inonline }) => {
+const chatwindow = ({ selectedContact, user, inonline ,handleChatExit}) => {
 
   return (
     <div className="h-20 fixed top-0 md:top-17  w-full bg-gray-100 border-b border-gray-300 px-4  flex items-center gap-3">
@@ -30,6 +30,8 @@ const chatwindow = ({ selectedContact, user, inonline }) => {
 
 
       </div>
+        <button onClick={handleChatExit} className=' md:hidden absolute right-[5%]  p-2 '><ArrowBackIcon   sx={{ fontSize: 30}} className=' rotate-180 '/>
+      </button>
 
     </div>
   )
