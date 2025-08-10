@@ -113,6 +113,11 @@ const Data = ({user}) => {
     }
   };
 
+ function handleChatExit() {
+    document.querySelector('#chat-window').classList.add('hidden');
+    document.querySelector('#contact-list').classList.remove('hidden');
+
+  }
 
 
 
@@ -168,7 +173,7 @@ const Data = ({user}) => {
       {/*------------------------------- --------Chat Window------------------------------------ */}
             <div id='chat-window' className="  relative hidden md:block w-full  flex flex-col overflow-y-auto   ">
         {/* chat window Header */}
-         <ChatWindow inonline={inonline} selectedContact={selectedContact} user={user} />  
+         <ChatWindow  handleChatExit={handleChatExit} inonline={inonline} selectedContact={selectedContact} user={user} />  
         {/*------------------------------------------ Messages------------------------------------*/}
         <Chats  messages={messages}  /> 
         {/* Input Box */}
