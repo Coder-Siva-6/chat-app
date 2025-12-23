@@ -233,7 +233,7 @@ if(up){
 import jwt from 'jsonwebtoken'
 
 
-<<<<<<< HEAD:server/src/controllers/auth.controller.mjs
+
 /////////////// after login validate and sent data to front end
  export const validate = async (req,res)=>{
 
@@ -265,7 +265,7 @@ import jwt from 'jsonwebtoken'
   }
    
   }
-=======
+
 /////////////// after login validate and sent data to front end \\\\\\\\\\\\\\\\
 export const validate = async (req,res)=>{
   const id = req.params.id
@@ -308,7 +308,7 @@ export const validate = async (req,res)=>{
    
 
 
->>>>>>> ec05524 (Updated Chatlynk features and UI improvements):server/src/controllers/auth.controller.js
+
 
 
 
