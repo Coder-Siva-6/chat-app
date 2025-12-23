@@ -381,7 +381,7 @@ export const ioConnection = async (socket) => {
       }
     }
   });
-};
+};}
 
 
 export const fetchMessage = async (req, res) => {
