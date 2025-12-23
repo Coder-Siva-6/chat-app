@@ -301,7 +301,7 @@ export const validate = async (req,res)=>{
 
 const userSocketMap = {};
 
-module.export const ioConnection = async (socket) => {
+module.export  ioConnection = async (socket) => {
   const phone = socket.handshake.auth?.phone;
   if (!phone) {
     console.log("❌ Phone not provided");
