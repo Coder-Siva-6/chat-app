@@ -28,7 +28,7 @@ const backendUrl = import.meta.env.VITE_BACKEND_URL
       // Save user from JWT
     })
     .catch( () => {
-     axios.post(`${backendUrl}/logout`, {}, { withCredentials: true });=======
+     axios.post(`${backendUrl}/logout`, {}, { withCredentials: true });
       
 
      
