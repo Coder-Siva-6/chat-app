@@ -234,37 +234,8 @@ import jwt from 'jsonwebtoken'
 
 
 
-/////////////// after login validate and sent data to front end
- export const validate = async (req,res)=>{
-
-  const user = await User.findOne({phone:currentUserNumber})
-
- try{
-    if (user.profilePicture) {
-     return res.json({
-       user: {
-         ...user.toObject(),
-         profilePicture: {
-
-           contentType: user.profilePicture.contentType,
-           data: user.profilePicture.data.toString('base64')
-         }
-
-       }
-     });
-
-   }
-  
-   
-   
 
 
-  }
-  catch{
-     return res.json({message:'data without image',user})
-  }
-   
-  }
 
 /////////////// after login validate and sent data to front end \\\\\\\\\\\\\\\\
 export const validate = async (req,res)=>{
