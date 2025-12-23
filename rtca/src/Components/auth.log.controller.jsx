@@ -10,26 +10,25 @@ const PrivateRoute = ({ children }) => {
 
   const navigate = useNavigate();
 const backendUrl = import.meta.env.VITE_BACKEND_URL 
-<<<<<<< HEAD
+
 
 
   async function getData(){
     await axios.get(`${backendUrl}/validate`, {
-=======
+
  
   useEffect(() => {
     axios.get(`${backendUrl}/validate/123`, {
->>>>>>> ec05524 (Updated Chatlynk features and UI improvements)
+
       withCredentials: true
     })
  .then((res) => {
       setUser(res.data.user); 
-<<<<<<< HEAD
+
       // Save user from JWT
     })
     .catch( () => {
-     axios.post(`${backendUrl}/logout`, {}, { withCredentials: true });
-=======
+     axios.post(`${backendUrl}/logout`, {}, { withCredentials: true });=======
       
 
      
@@ -39,7 +38,7 @@ const backendUrl = import.meta.env.VITE_BACKEND_URL
    
     .catch(() => {
       axios.post(`${backendUrl}/logout`, {}, { withCredentials: true });
->>>>>>> 3161e7d (second one)
+
       navigate("/");
     });
     
