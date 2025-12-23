@@ -8,13 +8,18 @@ const PrivateRoute = ({ children }) => {
 
   const [user, setUser] = useState(null);
 
-   
   const navigate = useNavigate();
 const backendUrl = import.meta.env.VITE_BACKEND_URL 
+<<<<<<< HEAD
 
 
   async function getData(){
     await axios.get(`${backendUrl}/validate`, {
+=======
+ 
+  useEffect(() => {
+    axios.get(`${backendUrl}/validate/123`, {
+>>>>>>> ec05524 (Updated Chatlynk features and UI improvements)
       withCredentials: true
     })
  .then((res) => {

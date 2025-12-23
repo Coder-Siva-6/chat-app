@@ -62,7 +62,7 @@ export const signUp =  async (req,res)=>{
     
 }
 
- let currentUserNumber  //.....the user who login its get from database .....//
+ 
  
 
 
@@ -92,7 +92,7 @@ export const signUp =  async (req,res)=>{
 
 export const logIn = async(req,res)=>{
     const{num,pass} =req.body
-    currentUserNumber = num 
+  
   try{
      if( !num || !pass){
          return res.status(401).json({message:'All fields are required'})
@@ -230,8 +230,10 @@ if(up){
 
 }
 
+import jwt from 'jsonwebtoken'
 
 
+<<<<<<< HEAD:server/src/controllers/auth.controller.mjs
 /////////////// after login validate and sent data to front end
  export const validate = async (req,res)=>{
 
@@ -263,6 +265,50 @@ if(up){
   }
    
   }
+=======
+/////////////// after login validate and sent data to front end \\\\\\\\\\\\\\\\
+export const validate = async (req,res)=>{
+  const id = req.params.id
+  
+  const decoded = jwt.decode(req.cookies.jwt)
+    
+  console.log("validate user id:",decoded)
+  if(!id){
+    console.log('noid')
+    return(res.send("there is no id"))
+  }
+ console.log("id",id)
+  const user = await User.findById(decoded.userId)
+  try{
+    if (user.profilePicture) {
+     return res.json({
+       user: {
+         ...user.toObject(),
+         profilePicture: {
+
+           contentType: user.profilePicture.contentType,
+           data: user.profilePicture.data.toString('base64')
+         }
+
+       }
+     });
+
+   }
+  
+   
+   
+
+
+  }
+  catch{
+     return res.json({message:'data without image',user})
+   
+  }
+
+   
+
+
+>>>>>>> ec05524 (Updated Chatlynk features and UI improvements):server/src/controllers/auth.controller.js
 
 
 

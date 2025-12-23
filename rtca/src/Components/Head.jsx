@@ -31,7 +31,11 @@ const Head = ({ user }) => {
             const formData = new FormData();
             formData.append('image', file);
             formData.append('phone', phone);
+<<<<<<< HEAD
                setTimeout(()=>{
+=======
+            setTimeout(()=>{
+>>>>>>> ec05524 (Updated Chatlynk features and UI improvements)
                         setProfilePicture(!profilePicture)
                     },2000)
 
@@ -41,7 +45,11 @@ const Head = ({ user }) => {
             })
                 .then((response) => {
                     console.log('Image uploaded successfully:', response.data);
+<<<<<<< HEAD
                  
+=======
+                    
+>>>>>>> ec05524 (Updated Chatlynk features and UI improvements)
                     
                 })
                 .catch((error) => { console.error('Error uploading image:', error); });
