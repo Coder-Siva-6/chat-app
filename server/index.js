@@ -2,8 +2,8 @@ import express from 'express'
 import dotenv from 'dotenv'
 import { verifyToken } from './src/middlewares/jwt.middle.js'
 import {connectDB} from './src/lib/db.js'
-////import {signUp,logIn,logOut,contact,mess,validate,fetchMessage,addContact} from './src/controllers/auth.controller.js'
-const{ ioConnection,signUp,logIn,logOut,contact,mess,validate,fetchMessage,addContact} = require('./src/controllers/auth.controller.js')
+import {signUp,logIn,logOut,contact,mess,validate,fetchMessage,addContact,ioConnection} from './src/controllers/auth.controller.js'
+
 
 import cookieParser from 'cookie-parser'
 import cors from 'cors'
