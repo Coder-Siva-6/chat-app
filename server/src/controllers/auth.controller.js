@@ -6,7 +6,7 @@ import bcrypt from 'bcrypt'
 
 
 
-export const signUp =  async (req,res)=>{
+ const signUp =  async (req,res)=>{
 
     const{name,email,phone,password}= req.body
 
@@ -62,8 +62,8 @@ export const signUp =  async (req,res)=>{
     
 }
 
+  
  
- 
 
 
 
@@ -90,7 +90,7 @@ export const signUp =  async (req,res)=>{
 
 
 
-export const logIn = async(req,res)=>{
+ const logIn = async(req,res)=>{
     const{num,pass} =req.body
   
   try{
@@ -125,7 +125,7 @@ export const logIn = async(req,res)=>{
 
 
 
-export const logOut = async (req,res)=>{
+ const logOut = async (req,res)=>{
   try{
     res.cookie('jwt',{maxAge:0})
     res.status(200).json({message:'logged out sucessfully'})
@@ -143,7 +143,7 @@ export const logOut = async (req,res)=>{
 
 
 
-export const contact = async (req,res)=>{
+ const contact = async (req,res)=>{
   const{name,phone,myPhone} =  req.body
   if(!name || !phone || !myPhone){
 
@@ -170,7 +170,7 @@ export const contact = async (req,res)=>{
 
 
 
-export const  mess = async (req,res)=>{
+ const  mess = async (req,res)=>{
   const{sentPhone,recivePhone,message}=req.body
 
   try{
@@ -238,7 +238,7 @@ import jwt from 'jsonwebtoken'
 
 
 /////////////// after login validate and sent data to front end \\\\\\\\\\\\\\\\
-export const validate = async (req,res)=>{
+ const validate = async (req,res)=>{
   const id = req.params.id
   
   const decoded = jwt.decode(req.cookies.jwt)
@@ -382,9 +382,8 @@ const userSocketMap = {};
     }
   });
 };
-module.exports = {ioConnection}
 
-export const fetchMessage = async (req, res) => {
+ const fetchMessage = async (req, res) => {
   const { myPhone, contactPhone } = req.body;
 
   try {
@@ -418,7 +417,7 @@ export const fetchMessage = async (req, res) => {
 ///=================================================================addding contact to database
 
 
-export const addContact = async (req, res) => {
+ const addContact = async (req, res) => {
   const {name,phone,myphone}=req.body
   try{
     if (!name || !phone || !myphone) {
@@ -467,6 +466,8 @@ export const addContact = async (req, res) => {
 }
 
 
+
+ module.exports = {ioConnection,signUp,addContact,fetchMessage,validate,contact,logIn,logOut,mess}
 
 
 
